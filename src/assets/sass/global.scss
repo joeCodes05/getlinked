@@ -3,6 +3,7 @@
 $bg-color: #150e28;
 $primary-color: #d434fe;
 $secondary-clor: #903aff;
+$neutral-color: #FE34B9;
 
 body {
   margin: 0%;
@@ -25,7 +26,7 @@ h6 {
 
 // button style
 .btn {
-  background: linear-gradient(90deg, $primary-color 50%, $secondary-clor);
+  background: linear-gradient(90deg, $neutral-color, $secondary-clor);
   position: relative;
   transition: .3s ease-in;
 }
@@ -67,7 +68,7 @@ header.border-b {
 }
 
 .nav-links:hover {
-  background: linear-gradient(90deg, $primary-color 50%, $secondary-clor);
+  background: linear-gradient(90deg, $neutral-color, $secondary-clor);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
