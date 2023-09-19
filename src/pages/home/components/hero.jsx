@@ -7,8 +7,8 @@ const Hero = () => {
   return (
     <>
       <section className='hero h-screen w-screen overflow-hidden relative'>
-        <div className='absolute opacity-[0.5] top-[-10%] left-[3%]'>
-          <img src={TopFlare} width={'70%'} alt="purple flare" />
+        <div className='absolute opacity-[0.4] top-[-30%] left-[0%]'>
+          <img src={TopFlare} width={'100%'} alt="purple flare" />
         </div>
 
         <div className='absolute left-[20%] top-[20%] bottom-[10%]'>
