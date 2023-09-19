@@ -1,23 +1,28 @@
-import { Fragment, useState } from 'react'
-import { Dialog, Popover, Transition } from '@headlessui/react'
+import { useState } from 'react'
+import { Dialog, Popover } from '@headlessui/react'
 import Logo from '../assets/images/logo.png'
 import {
   Bars3Icon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Link } from 'react-router-dom'
+import Button from './button'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const navbarLinks = [
+    { linkName: "Timeline", path: "#timeline" },
+    { linkName: "Overview", path: "#overview" },
+    { linkName: "FAQs", path: "#faqs" },
+    { linkName: "Contact", path: "#contact" },
+  ]
 
   return (
-    <header className="bg-white">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="bg-transparent z-50 border-b fixed top-0 left-0 right-0">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">getlinked</span>
-            <img className="h-8 w-auto" src={Logo} alt="get linked logo" />
+            <h1 className='nav_brand text-[36px] leading-[36px] text-white font-bold'>get<span className='text-primary'>linked</span></h1>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -30,38 +35,22 @@ export default function Navbar() {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <Popover className="relative">
-            <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Product
-              <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-            </Popover.Button>
+        <Popover.Group className="hidden ml-auto mr-[100px] lg:flex lg:gap-x-12">
+          {navbarLinks.map((links, index) => {
+            const { linkName, path } = links;
 
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-200"
-              enterFrom="opacity-0 translate-y-1"
-              enterTo="opacity-100 translate-y-0"
-              leave="transition ease-in duration-150"
-              leaveFrom="opacity-100 translate-y-0"
-              leaveTo="opacity-0 translate-y-1"
-            >
-            </Transition>
-          </Popover>
-
-          <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
-            Features
-          </Link>
-          <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
-            Marketplace
-          </Link>
-          <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
-          </Link>
+            return (
+              <Link key={index} to={path} className='text-[16px] duration-300 font-[500] leading-[16px] nav-links text-white'>
+                {linkName}
+              </Link>
+            )
+          })}
         </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:justify-end">
           <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
+            <Button
+              text={'Register'}
+            />
           </Link>
         </div>
       </nav>
