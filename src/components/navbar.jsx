@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <header className="bg-transparent z-50 border-b fixed top-0 left-0 right-0">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8" aria-label="Global">
+      <nav className="mx-auto flex max-w-[1200px] items-center justify-between py-3" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <h1 className='nav_brand text-[36px] leading-[36px] text-white font-bold'>get<span className='text-primary'>linked</span></h1>
